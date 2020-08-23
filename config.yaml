@@ -1,0 +1,13 @@
+news_sites:
+  eluniversal:
+    url: 'http://www.eluniversal.com.mx'
+    queries:
+      homepage_article_links: '.contenido-principal .content a'
+      article_body: ''
+      article_title: ''
+  elpais:
+    url: 'https://elpais.com/mexico/'
+    queries:
+      homepage_article_links: '.headline a'
+      article_body: ''
+      article_title: ''
