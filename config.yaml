@@ -3,11 +3,11 @@ news_sites:
     url: 'http://www.eluniversal.com.mx'
     queries:
       homepage_article_links: '.contenido-principal .content a'
-      article_body: ''
-      article_title: ''
+      article_body: '.field-name-body'
+      article_title: '.Encabezado-Articulo h1'
   elpais:
     url: 'https://elpais.com/mexico/'
     queries:
       homepage_article_links: '.headline a'
-      article_body: ''
-      article_title: ''
+      article_body: '.a_b p'
+      article_title: '.a_hg h1'
