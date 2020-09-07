@@ -1,6 +1,8 @@
 
 import argparse
 import logging
+import datetime
+import csv
 import re
 from requests.exceptions import HTTPError
 from urllib3.exceptions import MaxRetryError
@@ -22,8 +24,19 @@ def _news_scraper(news_site):
         if article:
             logger.info('Article fetched!!')
             articles.append(article)
-            logger.info(article.title)
-    print(len(article))
+            print(article.title)
+    _save_articles(news_site, articles)
+
+def _save_articles(news_site, articles):
+    now = datetime.datetime.now().strftime('%Y_%m_%d')
+    out_file_name = '{news_site}_{datetime}_articles.csv'.format(news_site=news_site, datetime=now)
+    csv_headers = list(filter(lambda property: not property.startswith('_'), dir(articles[0])))
+    with open(out_file_name, mode='w+') as f:
+        writer = csv.writer(f)
+        writer.writerow(csv_headers)
+        for article in articles:
+            row=[str(getattr(article, prop)) for prop in csv_headers]
+            writer.writerow(row)
 
 def _fetch_article(news_site, host, link):
     logger.info('Start fetching article at {}'.format(link))

@@ -2,3 +2,9 @@
 Solicitudes_HTTP.ipynb
 __pycache__/*
 newscraper/*
+.ipynb_checkpoints/*
+diario_2020_08_31_articles.csv
+elpais_2020_08_31_articles.csv
+elsol_2020_09_01_articles.csv
+elsol_2020_09_04_articles.csv
+eluniversal_2020_08_31_articles.csv
