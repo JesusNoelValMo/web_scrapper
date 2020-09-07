@@ -18,6 +18,7 @@ def main(filename):
     df = _generate_uids_for_rows(df)
     df = _remove_new_lines_from_body(df)
     df = _tokenize_columns(df, 'body')
+    df = _tokenize_columns(df, 'title')
     df = _remove_duplicates(df, 'title')
     df = _drop_rows_with_missing_values(df)
     _save_data(df, filename)
@@ -48,7 +49,7 @@ def _tokenize_columns(df, column_name):
            .apply(lambda word_list: list(filter(lambda word: word not in stop_words, word_list)))
            .apply(lambda valida_word_list: len(valida_word_list))
            )
-    df['n_tokens_title'] = tokenized
+    df['n_tokens_{}'.format(column_name)] = tokenized
     return df
 def _generate_uids_for_rows(df):
     logger.info('Generating uids for each row')
@@ -99,7 +100,7 @@ def _extract_newspaper_uid(filename):
 
 def _read_data(filename):
     logger.info('Reading file {}'.format(filename))
-    return pd.read_csv(filename, encoding='utf-8')
+    return pd.read_csv(filename, encoding='ISO-8859-1')
 
 
 if __name__ == '__main__':
