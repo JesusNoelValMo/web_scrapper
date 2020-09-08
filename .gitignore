@@ -8,3 +8,5 @@ elpais_2020_08_31_articles.csv
 elsol_2020_09_01_articles.csv
 elsol_2020_09_04_articles.csv
 eluniversal_2020_08_31_articles.csv
+load/__pycache__/*
+extract/__pycache__/*
