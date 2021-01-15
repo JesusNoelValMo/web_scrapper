@@ -1,3 +1,5 @@
+#Class example
+#For this class we will use sqlalchemy
 from sqlalchemy import Column, String, Integer, Text
 from base import Base
 
@@ -21,3 +23,4 @@ class Article(Base):
         self.n_tokens_title = n_tokens_title
         self.title = title
         self.url = url
+        
